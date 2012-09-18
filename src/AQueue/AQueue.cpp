@@ -21,7 +21,7 @@ void AQueue::enqueue(int value) {
 }
 
 int AQueue::dequeue() {
-  assert(entires!=0);
+  assert(entries!=0);
   int value = theQueue[front];
   front = (front+1)%length;
   entries--;
