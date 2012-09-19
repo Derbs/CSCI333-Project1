@@ -5,13 +5,21 @@ using std::cout;
 using std::endl;
 
 int main() {
-  AQueue cue = AQueue(5);
-  cue.enqueue(3);
-  cue.enqueue(4);
-  cue.enqueue(5);
+  AQueue* cue = new AQueue(5);
+  cue->enqueue(3);
+  cue->enqueue(4);
+  cue->enqueue(5);
 
-  cout << cue.dequeue() <<endl;
-  cout << cue.dequeue() << endl;
-  cout << cue.dequeue() << endl;
+  for(int i = 0; i<10; i++) {
+    cue->enqueue(i);
+    cout <<cue->size() << " ";
+  }
+  cout <<endl;
+  for(int i = 0; i<5; i++) {
+    cout << cue->dequeue() << " ";
+  }
+  cout << cue->dequeue() <<endl;
+  cout << cue->dequeue() << endl;
+  cout << cue->dequeue() << endl;
   return 0;
 }
