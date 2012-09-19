@@ -5,7 +5,7 @@
 AQueue::AQueue(int initSize) {
   theQueue = new int[initSize];
   front = 0;
-  back = 0;
+  back = -1;
   entries = 0;
   length = initSize;
 }
@@ -15,6 +15,7 @@ AQueue::~AQueue() {
 }
 
 void AQueue::enqueue(int value) {
+  assert(entries<=length);
   back = (back+1)%length;
   theQueue[back] = value;
   entries++;
