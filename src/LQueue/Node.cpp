@@ -2,15 +2,6 @@
 #include "assert.h"
 #include <iostream>
 
-Node::Node() {
-  value = 0;
-  next = 0;
-}
-
-Node::Node(int val) {
-  value = val;
-  next = 0;
-}
 Node::Node(Node* nxt, int val) {
   next = nxt;
   value = val;

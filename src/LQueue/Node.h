@@ -7,8 +7,6 @@ class Node {
     Node* next;
 
   public: 
-    Node();
-    Node(int val = 0);
     Node(Node* nxt = 0, int val = 0);
     ~Node();
     void setNext(Node* nxt);

@@ -43,7 +43,8 @@ int AQueue::dequeue() {
 }
 
 bool AQueue::isEmpty() {
-  return false;
+  if(entries==0) return true;
+  else return false;
 }
 
 int AQueue::size() {
