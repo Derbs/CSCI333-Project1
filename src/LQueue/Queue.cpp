@@ -6,5 +6,9 @@ using std::cout;
 using std::endl;
 
 int main() {
-  cout << "Hello, world!";
+  LQueue* test = new LQueue();
+  test->enqueue(5);
+  test->enqueue(2);
+  cout << test->dequeue() <<endl;
+  cout << test->dequeue() << endl;
 }

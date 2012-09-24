@@ -8,11 +8,12 @@ class LQueue {
     Node* front;
     Node* back;
     int entries;
+
   public:
     LQueue(Node* frnt = 0);
     ~LQueue();
     int dequeue();
-    void enqueue();
+    void enqueue(int val);
     int size();
     bool isEmpty();
 };

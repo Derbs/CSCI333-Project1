@@ -10,7 +10,7 @@ $(BUILD)/aqueue_test: $(BUILD)/AQueue.o AQueue/Queue.cpp
 	$(COMP) $(CPPFLAGS) -o $@ AQueue/Queue.cpp AQueue.o
 
 $(BUILD)/lqueue_test: $(BUILD)/LQueue.o LQueue/Queue.cpp
-	$(COMP) $(CPPFLAGS) -o $@ LQueue/Queue.cpp LQueue.o
+	$(COMP) $(CPPFLAGS) -o $@ LQueue/Queue.cpp LQueue.o Node.o
 
 $(BUILD)/AQueue.o: AQueue/AQueue.h AQueue/AQueue.cpp
 	$(COMP) $(CPPFLAGS) -c AQueue/AQueue.cpp
