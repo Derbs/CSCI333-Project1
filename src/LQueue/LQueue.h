@@ -10,7 +10,7 @@ class LQueue {
     int entries;
 
   public:
-    LQueue(Node* frnt = 0);
+    LQueue();
     ~LQueue();
     int dequeue();
     void enqueue(int val);

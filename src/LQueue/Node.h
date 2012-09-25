@@ -7,7 +7,7 @@ class Node {
     Node* next;
 
   public: 
-    Node(Node* nxt = 0, int val = 0);
+    Node(int val = 0);
     ~Node();
     void setNext(Node* nxt);
     void setValue(int val);

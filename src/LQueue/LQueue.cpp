@@ -2,9 +2,8 @@
 #include "LQueue.h"
 #include "assert.h"
 
-LQueue::LQueue(Node* frnt) {
-  front = frnt;
-  front->setNext(0);
+LQueue::LQueue() {
+  front = new Node(0);
   entries = 0;
 }
 
@@ -13,21 +12,28 @@ LQueue::~LQueue() {
 }
 
 int LQueue::dequeue() {
-  assert(front!=0);
   assert(entries>0);
-  int val = front->getValue();
-  Node* oldFront = front;
+  int value = front->getValue();
+  Node* toBeDeleted = front;
   front = front->getNext();
-  delete oldFront;
+  delete toBeDeleted;
   entries--;
-  return val;
+  return value;
 }
 
 void LQueue::enqueue(int val) {
-  Node* oldBack = back;
-  back = new Node(0, val);
-  oldBack->setNext(back);
-  entries++;
+  if(entries == 0) {
+    front->setValue(val);
+  }
+  else if(entries == 1) {
+    front->setNext(new Node(val));
+    back = front->getNext();
+  }
+  else {
+    back->setNext(new Node(val));
+    back = back->getNext();
+  }
+  entries++;  
 }
 
 int LQueue::size() {
