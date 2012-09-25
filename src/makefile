@@ -6,19 +6,19 @@ CPPFLAGS = -Wall -Wextra -Werror
 
 $(BUILD)/main: $(BUILD)/aqueue_test $(BUILD)/lqueue_test
 
-$(BUILD)/aqueue_test: $(BUILD)/AQueue.o AQueue/Queue.cpp
+$(BUILD)/aqueue_test: src/AQueue.o AQueue/Queue.cpp
 	$(COMP) $(CPPFLAGS) -o $@ AQueue/Queue.cpp AQueue.o
 
-$(BUILD)/lqueue_test: $(BUILD)/LQueue.o LQueue/Queue.cpp
+$(BUILD)/lqueue_test: src/LQueue.o LQueue/Queue.cpp
 	$(COMP) $(CPPFLAGS) -o $@ LQueue/Queue.cpp LQueue.o Node.o
 
-$(BUILD)/LQueue.o: $(BUILD)/Node.o LQueue/LQueue.h LQueue/LQueue.cpp
+./src/LQueue.o: src/Node.o LQueue/LQueue.h LQueue/LQueue.cpp
 	$(COMP) $(CPPFLAGS) -c LQueue/LQueue.cpp
 
-$(BUILD)/AQueue.o: AQueue/AQueue.h AQueue/AQueue.cpp
+./src/AQueue.o: AQueue/AQueue.h AQueue/AQueue.cpp
 	$(COMP) $(CPPFLAGS) -c AQueue/AQueue.cpp
 
-$(BUILD)/Node.o: LQueue/Node.h LQueue/Node.cpp
+./src/Node.o: LQueue/Node.h LQueue/Node.cpp
 	$(COMP) $(CPPFLAGS) -c LQueue/Node.cpp
 
 clean:

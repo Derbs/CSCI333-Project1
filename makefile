@@ -8,10 +8,10 @@ WARNFLAGS = -Wall -Wextra -Werror
 
 all: $(BUILD)/main $(TEST)/queue_test
 
-$(BUILD)/main: $(SRC)/AQueue/AQueue.cpp $(SRC)/AQueue.o  
+$(BUILD)/main:   
 	cd $(SRC); $(MAKE) 
 
-$(TEST)/queue_test: $(TEST)/Queue.cpp $(SRC)/AQueue.o 
+$(TEST)/queue_test: $(TEST)/Queue.cpp  
 	cd $(TEST); $(MAKE)
 
 clean:

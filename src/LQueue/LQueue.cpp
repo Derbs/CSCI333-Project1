@@ -2,13 +2,19 @@
 #include "LQueue.h"
 #include "assert.h"
 
+#include <iostream>
+
+using std::cout;
+
 LQueue::LQueue() {
   front = new Node(0);
   entries = 0;
 }
 
 LQueue::~LQueue() {
-
+  while(!isEmpty()) {
+    cout << dequeue();
+  }
 }
 
 int LQueue::dequeue() {
