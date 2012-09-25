@@ -12,11 +12,11 @@ $(BUILD)/aqueue_test: $(BUILD)/AQueue.o AQueue/Queue.cpp
 $(BUILD)/lqueue_test: $(BUILD)/LQueue.o LQueue/Queue.cpp
 	$(COMP) $(CPPFLAGS) -o $@ LQueue/Queue.cpp LQueue.o Node.o
 
+$(BUILD)/LQueue.o: $(BUILD)/Node.o LQueue/LQueue.h LQueue/LQueue.cpp
+	$(COMP) $(CPPFLAGS) -c LQueue/LQueue.cpp
+
 $(BUILD)/AQueue.o: AQueue/AQueue.h AQueue/AQueue.cpp
 	$(COMP) $(CPPFLAGS) -c AQueue/AQueue.cpp
-
-$(BUILD)/LQueue.o: $(BUILD)/Node.o LQueue/LQueue.h LQueue/LQueue.cpp
-	$(COMP) $(CPPFLAGS) -c LQueue/LQueue.cpp Node.o
 
 $(BUILD)/Node.o: LQueue/Node.h LQueue/Node.cpp
 	$(COMP) $(CPPFLAGS) -c LQueue/Node.cpp

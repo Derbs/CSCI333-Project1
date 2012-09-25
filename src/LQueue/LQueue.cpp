@@ -4,7 +4,8 @@
 
 LQueue::LQueue(Node* frnt) {
   front = frnt;
-  back = frnt;
+  front->setNext(0);
+  entries = 0;
 }
 
 LQueue::~LQueue() {
@@ -13,6 +14,7 @@ LQueue::~LQueue() {
 
 int LQueue::dequeue() {
   assert(front!=0);
+  assert(entries>0);
   int val = front->getValue();
   Node* oldFront = front;
   front = front->getNext();
