@@ -4,7 +4,6 @@
 
 #include <iostream>
 
-using std::cout;
 
 LQueue::LQueue() {
   front = new Node(0);
@@ -13,7 +12,7 @@ LQueue::LQueue() {
 
 LQueue::~LQueue() {
   while(!isEmpty()) {
-    cout << dequeue();
+    dequeue();
   }
 }
 
@@ -21,7 +20,13 @@ int LQueue::dequeue() {
   assert(entries>0);
   int value = front->getValue();
   Node* toBeDeleted = front;
-  front = front->getNext();
+  if(entries > 1) {
+    front = front->getNext();
+  }
+  else if(entries == 1){
+    front = new Node(0);
+    //std::cout << "The size should be::" << entries << std::endl;
+  }
   delete toBeDeleted;
   entries--;
   return value;
@@ -32,8 +37,8 @@ void LQueue::enqueue(int val) {
     front->setValue(val);
   }
   else if(entries == 1) {
-    front->setNext(new Node(val));
-    back = front->getNext();
+    back = new Node(val);
+    front->setNext(back);
   }
   else {
     back->setNext(new Node(val));

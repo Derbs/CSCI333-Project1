@@ -1,12 +1,11 @@
 #include <iostream>
-#include "LQueue.h"
-#include "Node.h"
+#include "ListQueue.h"
 
 using std::cout;
 using std::endl;
 
 int main() {
-  LQueue* test = new LQueue();
+  ListQueue* test = new ListQueue();
   test->enqueue(5);
   test->enqueue(2);
   test->enqueue(3);
