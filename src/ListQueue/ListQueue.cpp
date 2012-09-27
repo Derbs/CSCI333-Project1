@@ -1,7 +1,6 @@
 #include "ListQueue.h"
-#include <iostream>
 #include "assert.h"
-#include <list>
+
 
 ListQueue::ListQueue() {
   theQueue = new std::list<int>();
@@ -9,19 +8,19 @@ ListQueue::ListQueue() {
 }
 
 ListQueue::~ListQueue() {
-  
+  delete theQueue;
 }
 
 int ListQueue::dequeue() {
   assert(entries > 0);
   entries--;
-  int result = theQueue.front();
-  theQueue.pop_front();
+  int result = theQueue->front();
+  theQueue->pop_front();
   return result;
 }
 
 void ListQueue::enqueue(int val) {
-  theQueue.push_back(val);
+  theQueue->push_back(val);
   entries++;
 }
 

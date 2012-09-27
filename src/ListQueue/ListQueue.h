@@ -2,7 +2,7 @@
 #define __LISTQUEUE_H__
 
 #include <list>
-#include <iostream>
+
 class ListQueue {
   private:
     std::list<int>* theQueue;
@@ -15,4 +15,6 @@ class ListQueue {
     int size();
     bool isEmpty();
 };
+
+
 #endif
