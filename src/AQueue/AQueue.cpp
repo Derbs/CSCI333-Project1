@@ -16,6 +16,7 @@ AQueue::~AQueue() {
 
 void AQueue::enqueue(int value) {
   assert(entries<=length);
+    //if we reach capacity, lets go ahead and resize::
   if(entries==length) {  //if we have reached the capacity of the array...
     int* holder = theQueue;  //point to the old version of theQueue;
     theQueue = new int[length*2];  //create a new array twice of the size of the old array at theQueue
@@ -29,6 +30,21 @@ void AQueue::enqueue(int value) {
     back = entries-1;
     delete[] holder;
   }
+    //if we go to 1/4 capacity, half the size of the cue.  
+  double fullness = entries/length;
+  if(fullness == .25) {
+    int* holder = theQueue;
+    theQueue = new int[length/2];
+    for(int i = 0; i<entries; i++) {
+      theQueue[i] = holder[front];
+      front = (front+1)%length;
+    }
+    front = 0;
+    length = length/2;
+    back = entries-1;
+    delete[] holder;
+  }
+  
   back = (back+1)%length;
   theQueue[back] = value;
   entries++;
